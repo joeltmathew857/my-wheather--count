@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
   faSearch,
   faCartShopping,
+  faTimes,
+  faTruck,
+  faHeart,
+  faWallet,
+  faQuestion,
+  faDownload,
 } from "@fortawesome/free-solid-svg-icons";
 
 const SideBar = () => {
+  const [nav, setnav] = useState(false);
   return (
     <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4">
       {/* left side */}
@@ -18,7 +25,7 @@ const SideBar = () => {
         <h1 className="text-2xl sm:text-3xl lg:text-4xl">
           Best <span className="font-bold">Eats</span>
         </h1>
-        <div className="sm:text-sm  lg:text-lg lg:flex hidden bg-gray-200 rounded-full ">
+        <div className="sm:text-sm lg:text-lg lg:flex hidden bg-gray-200 rounded-full ">
           <p className="bg-black p-2 rounded-full text-white">delivery</p>
           <p className="p-2">pickup</p>
         </div>
@@ -43,12 +50,44 @@ const SideBar = () => {
         </div>
       </div>
 
-      {/*mobile menu*/}
-      {/*overlay*/}
+      {/* mobile menu */}
+      {/* overlay */}
       <div className="bg-black/80 fixed w-full h-screen z-10 top-0 left-0"></div>
-      {/*side drawer menu*/}
+      {/* side drawer menu */}
       <div className="fixed top-0 left-0 w-[300px] h-screen bg-white z-10 duration-300">
-        <FontAwesomeIcon icon="fa-solid fa-x" />
+        <FontAwesomeIcon
+          icon={faTimes}
+          className="absolute right-4 top-4 cursor-pointer "
+          size={30}
+        />
+        <h2 className="text-2xl p-4 ">
+          Best <span className="font-bold ">Eats</span>
+        </h2>
+        <nav>
+          <ul className="flex flex-col p-4 text-gray-8">
+            <li className="text-xl py-4 cursor-pointer">
+              <FontAwesomeIcon icon={faTruck} className="mr-4" />
+              Orders
+            </li>
+            <li className="text-xl py-4 cursor-pointer">
+              <FontAwesomeIcon icon={faHeart} className="mr-4" />{" "}
+              {/* Use faHeart directly */}
+              Favorite
+            </li>
+            <li className="text-xl py-4 cursor-pointer">
+              <FontAwesomeIcon icon={faWallet} className="mr-4" />
+              Wallets
+            </li>
+            <li className="text-xl py-4 cursor-pointer">
+              <FontAwesomeIcon icon={faQuestion} className="mr-4" />
+              Help
+            </li>
+            <li className="text-xl py-4 cursor-pointer">
+              <FontAwesomeIcon icon={faDownload} className="mr-4 " />
+              Best One
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   );
